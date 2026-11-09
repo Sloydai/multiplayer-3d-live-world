@@ -4,11 +4,11 @@ description: Builds your own multiplayer 3D place in the browser — a universit
 license: MIT
 compatibility: Needs git and Node.js 20+. Generating models needs the user's own Sloyd API key and internet access.
 metadata:
-  repository: https://github.com/Sloydai/world
+  repository: https://github.com/Sloydai/multiplayer-3d-live-world
   version: "2.0.0"
 ---
 
-# Build a multiplayer world
+# Build a Multiplayer 3D Live World
 
 The template is Gym: a hall where people walk in, use stations (machines, seats, a sauna), do
 one-shot actions together, and see each other move in real time, with background visitors when
@@ -28,14 +28,14 @@ The user builds in their own repository. If the working directory has no `server
 `src/world.js`, clone the template and detach it from the original:
 
 ```sh
-git clone https://github.com/Sloydai/world.git <project-name>
+git clone https://github.com/Sloydai/multiplayer-3d-live-world.git <project-name>
 cd <project-name>
 git remote rename origin template
 npm install
 ```
 
 Check `node --version` is 20 or newer. When the user wants it on GitHub, create their repository
-and add it as `origin`; never push to `Sloydai/world`.
+and add it as `origin`; never push to `Sloydai/multiplayer-3d-live-world`.
 
 ## 2. Run it
 

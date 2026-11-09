@@ -1,4 +1,4 @@
-# World
+# Multiplayer 3D Live World
 
 Build your own multiplayer 3D place in the browser: a university, hospital, city square, office, library, café, school, airport, club or anything else where people gather. People walk in, use stations, act together in real time, and background visitors keep each room lively when it's quiet.
 
@@ -7,7 +7,7 @@ This repository is a Claude Code plugin with one skill, `build-world`, plus the 
 ## Build your world with Claude Code
 
 ```
-/plugin marketplace add Sloydai/world
+/plugin marketplace add Sloydai/multiplayer-3d-live-world
 /plugin install world@world
 ```
 
