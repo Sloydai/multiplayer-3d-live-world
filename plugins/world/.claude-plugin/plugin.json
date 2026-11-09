@@ -1,0 +1,21 @@
+{
+  "name": "world",
+  "version": "2.0.0",
+  "description": "The build-world skill: turns the Gym template into your own multiplayer 3D place (university, hospital, city, office, café and more) with Sloyd-generated models, background visitors and one-click hosting.",
+  "author": {
+    "name": "Martin Truong (Sloyd AS)",
+    "email": "martin@sloyd.ai",
+    "url": "https://www.sloyd.ai"
+  },
+  "homepage": "https://github.com/Sloydai/world",
+  "repository": "https://github.com/Sloydai/world",
+  "license": "MIT",
+  "keywords": [
+    "game",
+    "gym",
+    "multiplayer",
+    "sloyd",
+    "three.js",
+    "virtual-world"
+  ]
+}

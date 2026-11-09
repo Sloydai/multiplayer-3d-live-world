@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1f2a2c">
+<title>Gym</title>
+<link rel="stylesheet" href="/style.css">
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+</head>
+<body>
+<canvas id="scene"></canvas>
+
+<main id="boot" class="boot">
+  <svg viewBox="0 0 24 24" class="mark"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg>
+  <h1>Gym</h1>
+  <p id="boot-message">Unlocking the doors</p>
+  <span class="dot"></span>
+</main>
+
+<header class="topbar">
+  <button id="room-button" class="chip"><span class="live"></span><span id="room-label">Oslo</span><small id="count-label">·</small></button>
+  <div id="hydration" class="hydration chip" title="Hydration"><span>💧</span><div class="bar"><div id="hydration-fill"></div></div><small id="hydration-value"></small></div>
+  <div class="spacer"></div>
+  <button id="people-button" class="icon" title="Who's here">👥</button>
+  <button id="photo-button" class="icon" title="Save photo">📷</button>
+  <button id="sound-button" class="icon" title="Sound">🔇</button>
+  <button id="settings-button" class="icon" title="Settings">⚙︎</button>
+</header>
+
+<footer class="dock">
+  <button id="wave-button" class="action"><span>Wave</span><kbd>H</kbd></button>
+  <button id="drink-button" class="action"><span id="bottle-label">Drink</span><kbd>Q</kbd></button>
+  <button id="stand-button" class="action" hidden><span>Get up</span><kbd>E</kbd></button>
+  <div id="stats" class="stats"></div>
+</footer>
+
+<p id="hint" class="hint">Click the floor to walk · drag to look around · scroll to zoom · click equipment, a water station or the sauna</p>
+<div id="toast" class="toast" hidden></div>
+
+<section id="workout-panel" class="panel" hidden>
+  <header><h2 id="workout-title">Workout</h2><button class="close" data-close="workout-panel">×</button></header>
+  <button id="rep-button" class="punch"><span id="rep-label">Rep</span><small>Space</small></button>
+  <p id="workout-set" class="big"></p>
+  <p id="workout-meta" class="meta"></p>
+  <div class="row"><button id="auto-button" class="secondary">Auto</button><button id="leave-button" class="secondary">Step off</button></div>
+</section>
+
+<section id="sauna-panel" class="panel compact" hidden>
+  <p id="sauna-title" class="big">Sauna</p>
+  <p id="sauna-text" class="meta"></p>
+  <div class="row"><button id="sauna-leave" class="secondary">Leave</button></div>
+</section>
+
+<section id="rooms-panel" class="panel" hidden>
+  <header><h2>Gyms</h2><button class="close" data-close="rooms-panel">×</button></header>
+  <ul id="rooms-list" class="rooms"></ul>
+  <p class="meta">Each room is its own copy of the gym. The numbers are real people training right now.</p>
+</section>
+
+<section id="people-panel" class="panel" hidden>
+  <header><h2>Training here</h2><button class="close" data-close="people-panel">×</button></header>
+  <ul id="people-list" class="people"></ul>
+</section>
+
+<section id="settings-panel" class="panel" hidden>
+  <header><h2>Settings</h2><button class="close" data-close="settings-panel">×</button></header>
+  <label>Your name <input id="name-input" maxlength="24"></label>
+  <label>Ambience · ventilation and wind <input id="ambience-volume" type="range" min="0" max="1" step="0.05"></label>
+  <label>Effects · plates, bike, steam <input id="effects-volume" type="range" min="0" max="1" step="0.05"></label>
+  <details><summary>Controls</summary><p class="meta">Click the floor to walk · WASD to move · drag to orbit · wheel to zoom · click equipment to use it · Space one rep · Q drink · H wave · E get up · fill your bottle at a water station.</p></details>
+  <details><summary>Credits</summary><p class="meta">3D models generated with Sloyd.ai.</p></details>
+</section>
+
+<aside id="away" class="away" hidden><p>Catching your breath</p><button id="away-back">Keep training</button></aside>
+
+<div id="credit">Created by Martin Truong · Sloyd</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "barbell",
+    "prompt": "an olympic barbell with black bumper plates on each end, game asset",
+    "faces": 3000
+  },
+  {
+    "name": "bench-press",
+    "prompt": "a flat weight bench with an upright barbell rack at the head end holding an olympic barbell with black plates, black padded bench, black steel, commercial gym bench press station, realistic game asset"
+  },
+  {
+    "name": "dumbbell",
+    "prompt": "a single round rubber dumbbell, black with a chrome handle, game asset",
+    "faces": 1500
+  },
+  {
+    "name": "dumbbell-rack",
+    "prompt": "a long two tier dumbbell rack full of round black rubber dumbbells with chrome handles, black steel rack, commercial gym, realistic game asset"
+  },
+  {
+    "name": "monstera",
+    "prompt": "a large monstera plant in a round white ceramic pot, stylized game asset",
+    "faces": 4000
+  },
+  {
+    "name": "pullup-bar",
+    "prompt": "a freestanding pull-up bar station, black powder coated steel frame with a straight horizontal bar at the top, Scandinavian gym, stylized game asset"
+  },
+  {
+    "name": "sauna-heater",
+    "prompt": "a modern electric sauna heater, matte black metal box with sauna stones on top, wall mounted, game asset",
+    "faces": 3000
+  },
+  {
+    "name": "spin-bike",
+    "prompt": "an indoor spinning bike, black frame with teal accents, heavy flywheel at the front, commercial gym, realistic game asset"
+  },
+  {
+    "name": "squat-rack",
+    "prompt": "a power squat rack with a loaded olympic barbell, black steel frame and pale birch wood platform, Scandinavian gym, stylized game asset"
+  },
+  {
+    "name": "treadmill",
+    "prompt": "a modern treadmill, matte black and light gray, minimal Scandinavian design, stylized game asset"
+  },
+  {
+    "name": "water-station",
+    "prompt": "a wall mounted drinking water bottle refill station, brushed stainless steel panel with a tap spout over a small basin and a drip tray, modern gym, game asset",
+    "faces": 4000
+  }
+]

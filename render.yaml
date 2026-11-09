@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: gym
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true

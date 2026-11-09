@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<body style="margin:0">
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { ACTION_SECONDS, animateAvatar, createAvatar } from '/src/avatar.js';
+
+const params = new URLSearchParams(location.search);
+const side = params.get('side') === '1';
+const poses = [
+  { label: 'idle' },
+  { action: 'wave', at: 0.5 },
+  { action: 'drink', at: 0.5 },
+  { anim: 'squat', action: 'squat', at: 0.5 },
+  { anim: 'cycle', stride: 0 },
+  { anim: 'cycle', stride: Math.PI / 2 },
+  { anim: 'curl', action: 'curl', at: 0.25 },
+  { anim: 'curl', action: 'curl', at: 0.5 },
+  { anim: 'run', stride: Math.PI / 2 },
+  { anim: 'sit' },
+  { anim: 'bench', action: 'press', at: 0.5 },
+  { anim: 'hang', action: 'pullup', at: 0.5 },
+];
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xbcc6cc);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x667777, 3));
+const bar = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.04, 0.04), new THREE.MeshLambertMaterial({ color: 0x333333 }));
+const props = { barbell: bar, dumbbell: new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.08, 0.08), new THREE.MeshLambertMaterial({ color: 0x333333 })) };
+poses.forEach((pose, i) => {
+  const avatar = createAvatar(0x3a7bd5, props);
+  avatar.position.set((i % 6) * 1.6, i < 6 ? 2.6 : 0, 0);
+  if (side) avatar.rotation.y = Math.PI / 2;
+  scene.add(avatar);
+  animateAvatar(avatar, { action: pose.action, actionTime: (pose.at ?? 0) * (ACTION_SECONDS[pose.action] ?? 0), anim: pose.anim, speed: 0, stride: pose.stride ?? 0, time: 0 });
+});
+const camera = new THREE.OrthographicCamera(-5.4, 5.4, 3.5, -3.5, 0.1, 100);
+camera.position.set(4, 2.2, 13);
+camera.lookAt(4, 2.2, 0);
+renderer.render(scene, camera);
+window.gym = true;
+</script>
+</body>
+</html>

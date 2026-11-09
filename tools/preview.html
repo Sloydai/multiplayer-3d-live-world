@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<body style="margin:0;background:#888">
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { normalise } from '/src/world.js';
+
+const names = new URLSearchParams(location.search).get('names').split(',');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xbbbbbb);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x666666, 3));
+const loader = new GLTFLoader();
+for (const [i, name] of names.entries()) {
+  const object = normalise((await loader.loadAsync(`/models/${name}.glb`)).scene, name);
+  object.position.x = i * 3.2;
+  scene.add(object);
+  const axes = new THREE.AxesHelper(1.6);
+  axes.position.set(i * 3.2, 0.02, 0);
+  scene.add(axes);
+}
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 100);
+const view = new URLSearchParams(location.search).get('view') || 'top';
+const midX = (names.length - 1) * 1.6;
+if (view === 'top') camera.position.set(midX, 9 + names.length * 1.5, 0.01);
+else camera.position.set(midX, 1.5, 6 + names.length * 1.6);
+camera.lookAt(midX, 0.6, 0);
+renderer.render(scene, camera);
+window.gym = true;
+</script>
+</body>
+</html>
